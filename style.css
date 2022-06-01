@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #FFFFFF;
+
+    --hue: 250;
+    --blue-gray-light: hsl(var(--hue), 100%, 97%);
+    --blue-gray-300: hsl(var(--hue), 17%, 62%);
+    --blue-gray-600: hsl(var(--hue), 17%, 35%);
+
+    --pink-gray-100: hsl(var(--hue), 18%, 79%);
+    --pink-light: hsl(var(--hue), 91%, 96%);
+
+    --purple-dark: hsl(var(--hue), 84%, 12%);
+
+    font-size: 62.5%;
+}
+
+h1, h2 {
+    font-family: 'Staatliches', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    max-width: max-content;
+    height: auto;
+}
+
+body {
+    background: var(--blue-gray-light);
+    font-family: 'Palanquin', sans-serif;
+    font-size: 1.6rem;
+}
+
+.spacing {
+    width: 100%;
+    max-width: 72.4rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    margin: 0 auto;
+}
+
+header {
+    background: var(--blue-gray-300);
+
+    padding: 3.2rem 0;
+
+    text-align: center;
+
+    animation: topdown 700ms;
+}
+
+header h1 {
+    background: var(--pink-gray-100);
+
+    padding: 0.8rem 0;
+    
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 3.4rem;
+
+    letter-spacing: 0.05rem;
+
+    color: var(--white);
+
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: var(--purple-dark);
+
+    text-align: center;
+
+    margin-top: 1.4rem;
+    margin-bottom: 6rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    max-width: 27.5rem;
+
+    display: none;
+}
+
+main {
+    animation: downtop 700ms 350ms backwards;
+
+    margin-bottom: 5rem;
+}
+
+.content p {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    color: var(--purple-dark);
+
+    text-align: center;
+
+    margin-top: 1.4rem;
+    margin-bottom: 6rem;
+}
+
+.col-3 {
+    display: grid;
+    gap: 3.2rem;
+}
+
+.card {
+    position: relative;
+
+    max-width: 32rem;
+
+    margin: 0 auto;
+}
+
+.card img {
+    object-fit: cover;
+    border-radius: 6px;
+
+    transition: all 200ms;
+    filter: brightness(0.5) saturate(1.5);
+}
+
+.card img:hover {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+.card h2 {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    
+    background: var(--pink-light);
+    border-radius: 2rem;
+
+    font-size: 2rem;
+    line-height: 3.4rem;
+    letter-spacing: 0.05rem;
+    color: var(--blue-gray-600);
+
+    padding: 0 1.6rem;
+}
+
+footer {
+    display: none;
+}
+
+footer span {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
+    margin-top: 5rem;
+
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    text-align: center;
+    color: var(--blue-gray-300);
+
+    mix-blend-mode: normal;
+}
+
+footer span a {
+    font-weight: 700;
+    color: var(--blue-gray-600);
+
+    transition: 200ms;
+}
+
+footer span a:hover {
+    color: #272a3a;
+}
+
+@keyframes topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transition: translateY(0);
+    }
+}
+
+@keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        height: 100vh;
+    }
+
+    .spacing {
+        width: 100%;
+        max-width: max-content;
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        margin: 0 auto;
+    }
+
+    header p {
+        display: block;
+    }
+
+    main {
+        margin: auto;
+    }
+
+    .content p {
+        display: none;
+    }
+    
+    .col-3 {
+        grid-template-areas: 
+        'C D F'
+        'C B F'
+        'A B E';
+    }
+
+    .card:nth-child(1) {
+        grid-area: A;
+    }
+
+    .card:nth-child(2) {
+        grid-area: B;
+        align-items: flex-start;
+    }
+
+    .card:nth-child(3) {
+        grid-area: D;
+    }
+
+    .card:nth-child(4) {
+        grid-area: C;
+    }
+
+    .card:nth-child(5) {
+        grid-area: E;
+    }
+
+    .card:nth-child(6) {
+        grid-area: F;
+    }
+
+    footer {
+        display: block;
+    }
+}
